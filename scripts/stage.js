@@ -61,6 +61,10 @@ else{
 const scrollCue=document.querySelector('.scroll-cue');
 scrollCue.addEventListener('click',()=>{if(expanded)stage.scrollTo({top:innerHeight,behavior:reduced.matches?'instant':'smooth'})});
 let detailScrollFrame=0;
+// 量自参考站四个滚动位置：角度与收缩都随封面的视觉位移线性变化。
+const COVER_ROT_PER_PX=.0358;      // 封面每上移 1px，顺时针 0.0358 度
+const COVER_CROP_PER_PX=.0382;     // 封面每上移 1px，每侧吃掉 0.0382% 宽度
+const COVER_CROP_MAX=12;           // 每侧最多吃掉 12%
 function updateDetailScroll(){
  detailScrollFrame=0;
  const y=Math.max(0,stage.scrollTop);
@@ -73,7 +77,11 @@ function updateDetailScroll(){
   document.body.classList.add('detail-ready');
  }
  const titleProgress=Math.max(0,Math.min(1,(y-innerHeight*.04)/(innerHeight*.32)));
- stage.style.setProperty('--cover-shift',Math.min(y,innerHeight*1.2)*.78+'px');
+ const coverShift=Math.min(y,innerHeight*1.2)*.78;
+ stage.style.setProperty('--cover-shift',coverShift+'px');
+ const visualUp=matchMedia('(prefers-reduced-motion: reduce)').matches?0:Math.max(0,y-coverShift);
+ stage.style.setProperty('--cover-crop',Math.min(COVER_CROP_MAX,visualUp*COVER_CROP_PER_PX)+'%');
+ stage.style.setProperty('--cover-rot',(visualUp*COVER_ROT_PER_PX)+'deg');
  stage.style.setProperty('--title-shift',-titleProgress*90+'px');
  stage.style.setProperty('--title-opacity',String(1-titleProgress));
 }
@@ -87,10 +95,10 @@ function openProject(e){
  details.forEach((el,i)=>{el.hidden=i!==target});
  stage.scrollTop=0;
  stage.style.setProperty('--cue-shift','0px');scrollCue.inert=false;
- stage.style.setProperty('--cover-shift','0px');
+ stage.style.setProperty('--cover-shift','0px');stage.style.setProperty('--cover-crop','0%');stage.style.setProperty('--cover-rot','0deg');
  stage.style.setProperty('--title-shift','0px');
  stage.style.setProperty('--title-opacity','1');
- document.body.style.setProperty('--detail-bg',['#60f5d4','#cfbd94','#d7c4ec'][target%3]);
+ document.body.style.setProperty('--detail-bg',['#E9B848','#DCE8E3','#E8DCC8'][target%3]);
  planes[target].classList.add('selected-plane');
  document.body.classList.add('project-expanded');
  clearTimeout(detailReadyTimer);
@@ -106,7 +114,7 @@ function closeProject(){
  expanded=false;closing=true;
  clearTimeout(detailReadyTimer);
  document.body.classList.remove('detail-ready');
- stage.style.setProperty('--cover-shift','0px');
+ stage.style.setProperty('--cover-shift','0px');stage.style.setProperty('--cover-crop','0%');stage.style.setProperty('--cover-rot','0deg');
  stage.style.setProperty('--title-shift','0px');
  stage.style.setProperty('--title-opacity','1');
  stage.scrollTop=0;details.forEach(el=>{el.hidden=true});
@@ -129,10 +137,6 @@ document.querySelectorAll('[data-rail]').forEach(block=>{
  if(!track)return;
  const items=[...track.querySelectorAll('figure')];
  if(!items.length)return;
- const counter=block.querySelector('[data-rail-counter]');
- const prevBtn=block.querySelector('[data-rail-prev]');
- const nextBtn=block.querySelector('[data-rail-next]');
- const total=String(items.length).padStart(2,'0');
  const padLeft=()=>parseFloat(getComputedStyle(track).paddingLeft)||0;
  const instant=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
  function nearest(){
@@ -142,25 +146,14 @@ document.querySelectorAll('[data-rail]').forEach(block=>{
   if(track.scrollLeft+track.clientWidth>=track.scrollWidth-2)idx=items.length-1;
   return idx;
  }
- function sync(){
-  if(counter)counter.textContent='('+String(nearest()+1).padStart(2,'0')+' / '+total+')';
-  if(prevBtn)prevBtn.disabled=track.scrollLeft<=2;
-  if(nextBtn)nextBtn.disabled=track.scrollWidth>0&&track.scrollLeft+track.clientWidth>=track.scrollWidth-2;
- }
  function go(step){
   const i=Math.min(items.length-1,Math.max(0,nearest()+step));
   const left=track.scrollLeft+items[i].getBoundingClientRect().left-track.getBoundingClientRect().left-padLeft();
   track.scrollTo({left:left,behavior:instant()?'instant':'smooth'});
  }
- if(prevBtn)prevBtn.addEventListener('click',()=>go(-1));
- if(nextBtn)nextBtn.addEventListener('click',()=>go(1));
- track.addEventListener('scroll',sync,{passive:true});
  track.addEventListener('keydown',e=>{
   if(e.key==='ArrowRight'){e.preventDefault();go(1)}
   else if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}
  });
- addEventListener('resize',sync);
- if(window.IntersectionObserver)new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting))sync()}).observe(block);
- sync();
 });
 })();
