@@ -6,7 +6,99 @@
     "tagline": "让想法，成为可感知的体验。",
     "role": "产品 / 交互设计",
     "bio": "个人介绍即将更新。",
-    "email": ""
+    "email": "",
+    "nameZh": "黄陈科",
+    "education": [
+      {
+        "school": "伦敦大学金史密斯学院",
+        "schoolEn": "Goldsmiths, University of London",
+        "degree": "用户体验工程（UXE）· 硕士",
+        "note": "",
+        "period": "2025.09 — 2026.12"
+      },
+      {
+        "school": "浙江理工大学",
+        "schoolEn": "",
+        "degree": "服装与服饰设计（中美合办）· 学士",
+        "note": "",
+        "period": "2021.09 — 2025.06"
+      }
+    ],
+    "skills": [
+      {
+        "title": "AI 辅助开发",
+        "items": "Codex · Claude Code · DeepSeek",
+        "note": "前端原型搭建 · 可测试的交互原型"
+      },
+      {
+        "title": "AI 视觉工作流",
+        "items": "ChatGPT Image2 · Midjourney · Stable Diffusion · ComfyUI · Figma Maker",
+        "note": ""
+      },
+      {
+        "title": "UI 视觉设计",
+        "items": "Figma",
+        "note": "界面布局 · 视觉层级 · 组件设计 · 高保真原型"
+      },
+      {
+        "title": "人因实验设备",
+        "items": "Tobii 眼动追踪 · 脑电 · 心电 · 肌电 · 加速度传感器",
+        "note": ""
+      },
+      {
+        "title": "其他软件",
+        "items": "Rhino · KeyShot · After Effects · 基础 Python",
+        "note": ""
+      }
+    ],
+    "photos": [
+      {
+        "image": "/images/me-01.jpg",
+        "alt": "黄陈科",
+        "shape": "portrait"
+      },
+      {
+        "image": "/images/me-02.jpg",
+        "alt": "实验室中的工作场景",
+        "shape": "landscape"
+      }
+    ],
+    "companions": [
+      {
+        "name": "土豆",
+        "photos": [
+          {
+            "image": "/images/cat-tudou-1.jpg",
+            "alt": "土豆"
+          },
+          {
+            "image": "/images/cat-tudou-2.jpg",
+            "alt": "土豆"
+          },
+          {
+            "image": "/images/cat-tudou-3.jpg",
+            "alt": "土豆"
+          }
+        ]
+      },
+      {
+        "name": "东东",
+        "photos": [
+          {
+            "image": "/images/cat-dongdong-1.jpg",
+            "alt": "东东"
+          },
+          {
+            "image": "/images/cat-dongdong-2.jpg",
+            "alt": "东东"
+          },
+          {
+            "image": "/images/cat-dongdong-3.jpg",
+            "alt": "东东"
+          }
+        ]
+      }
+    ]
   },
   "projects": [
     {
