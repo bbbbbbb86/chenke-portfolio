@@ -196,6 +196,24 @@ node -e "import('./scripts/project-stage.mjs').then(async m=>{const {readFileSyn
 
 所有文件夹都在 iCloud 同步的桌面上，未下载的文件读不了（报 `EDEADLK` 或 deadlock）。使用前先在访达里确认已下载到本地。
 
+### 站内图片一律是 WebP
+
+`public/images/` 里**只有 .webp**，没有 png/jpg。原图 33.8 MB 曾经全量进站（单张 `p3-cover.png` 5.4 MB），现在 2.3 MB。新增素材必须按同一套规则处理后再放进来：
+
+| 类别 | 最大宽度 | 质量 |
+|---|---|---|
+| 封面（`p3-cover` / `smart-fridge-cover` / `p2-cover`） | 1800 | 82 |
+| `p3-overview-*` | 1500 | 82 |
+| `story-*` | 1100 | 82 |
+| `p3-gallery-*` / `p3-proto-*` | 950 | 82 |
+| `cat-*` | 760 | 82 |
+| `me-*` | 560 | 82 |
+| 手机界面截图（`entry-` `action-` `rewards-` `account` `p2-step-` `p2-ota` `iteration-`） | 保持原宽（780 / 786） | 90 |
+
+宽度按 2× DPR 下的最大显示尺寸定的，别再往上加。**转换时必须保留 alpha**——22 张界面截图和产品渲染带真实透明像素（圆角、去背），用 `convert('RGB')` 会把它们毁掉且不易察觉。
+
+`entry-01-home` / `entry-02-scan` / `entry-03-inventory` / `entry-04-detail` 四张没有被 content.json 引用，是早期版本的遗留，可删。
+
 ## 9. 已知坑
 
 - **完整 build 在 iCloud 上会失败**，绕法见第 1 节。

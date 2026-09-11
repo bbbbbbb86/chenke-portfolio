@@ -53,12 +53,12 @@
     ],
     "photos": [
       {
-        "image": "/images/me-01.jpg",
+        "image": "/images/me-01.webp",
         "alt": "黄陈科",
         "shape": "portrait"
       },
       {
-        "image": "/images/me-02.jpg",
+        "image": "/images/me-02.webp",
         "alt": "实验室中的工作场景",
         "shape": "landscape"
       }
@@ -68,15 +68,15 @@
         "name": "土豆",
         "photos": [
           {
-            "image": "/images/cat-tudou-1.jpg",
+            "image": "/images/cat-tudou-1.webp",
             "alt": "土豆"
           },
           {
-            "image": "/images/cat-tudou-2.jpg",
+            "image": "/images/cat-tudou-2.webp",
             "alt": "土豆"
           },
           {
-            "image": "/images/cat-tudou-3.jpg",
+            "image": "/images/cat-tudou-3.webp",
             "alt": "土豆"
           }
         ]
@@ -85,15 +85,15 @@
         "name": "东东",
         "photos": [
           {
-            "image": "/images/cat-dongdong-1.jpg",
+            "image": "/images/cat-dongdong-1.webp",
             "alt": "东东"
           },
           {
-            "image": "/images/cat-dongdong-2.jpg",
+            "image": "/images/cat-dongdong-2.webp",
             "alt": "东东"
           },
           {
-            "image": "/images/cat-dongdong-3.jpg",
+            "image": "/images/cat-dongdong-3.webp",
             "alt": "东东"
           }
         ]
@@ -125,19 +125,19 @@
               "number": "01",
               "title": "无法确认",
               "text": "看不见现有库存，只能凭记忆购买。",
-              "image": "/images/story-01-purchase.png"
+              "image": "/images/story-01-purchase.webp"
             },
             {
               "number": "02",
               "title": "重复购买",
               "text": "新食材放进冰箱时，才发现同样的食材早已存在。",
-              "image": "/images/story-02-duplicate.png"
+              "image": "/images/story-02-duplicate.webp"
             },
             {
               "number": "03",
               "title": "最终浪费",
               "text": "再次想起时，它们已经错过最佳食用时间。",
-              "image": "/images/story-03-waste.png"
+              "image": "/images/story-03-waste.webp"
             }
           ],
           "summary": "浪费并非因为不在意，而是因为看不见、记不住、来不及。"
@@ -196,17 +196,17 @@
           {
             "number": "01",
             "title": "进入扫描",
-            "image": "/images/entry-home.png"
+            "image": "/images/entry-home.webp"
           },
           {
             "number": "02",
             "title": "拍摄小票",
-            "image": "/images/entry-scan.png"
+            "image": "/images/entry-scan.webp"
           },
           {
             "number": "03",
             "title": "确认并入库",
-            "image": "/images/entry-confirm.png"
+            "image": "/images/entry-confirm.webp"
           }
         ],
         "caption": "进入扫描 / 拍摄小票 / 确认并自动入库",
@@ -214,7 +214,7 @@
         "principleText": "自动化负责降低操作成本，关键确认点则保证结果透明、可修改，也让用户始终知道系统记录了什么。"
       },
       "color": "#d9e4cc",
-      "image": "/images/smart-fridge-cover.png",
+      "image": "/images/smart-fridge-cover.webp",
       "description": "用 AI 简化食材录入，以临期提醒减少遗忘，让每一份新鲜，都被及时享用。",
       "cta": "探索项目",
       "status": "内容整理中",
@@ -239,7 +239,7 @@
         "inventory": {
           "title": "突出临期状态与剩余用量",
           "text": "将剩余天数与颜色提示并列呈现，让临期食材更容易被注意。用量与进度条同时保留，帮助用户判断还剩多少。",
-          "image": "/images/action-inventory.png",
+          "image": "/images/action-inventory.webp",
           "alt": "日常库存界面：酸奶剩余 2 天、菠菜剩余 3 天，各食材同时显示剩余重量和比例。",
           "caption": "日常库存 / 剩余天数与用量一眼可见",
           "notes": [
@@ -256,7 +256,7 @@
         "filter": {
           "title": "按类别与临期程度筛选",
           "text": "按类别缩小范围，按临期程度筛选，再按到期时间排序。把“还有什么”变成一份更容易做决定的食材清单。",
-          "image": "/images/action-filter.png",
+          "image": "/images/action-filter.webp",
           "alt": "库存筛选界面：可按食材类别、临期程度筛选，并按到期时间、名称、重量或剩余比例排序。",
           "caption": "分类查找 / 按类别、临期程度与到期时间整理",
           "notes": [
@@ -277,7 +277,7 @@
         "text": "通过数字宠物提供状态反馈，将及时食用、分享食材等行为转化为积分，并以奖励兑换鼓励持续参与。",
         "history": {
           "title": "记录参与行为与积分变化",
-          "image": "/images/rewards-history.png",
+          "image": "/images/rewards-history.webp",
           "alt": "积分历史界面，展示余额、获得与消耗积分，以及及时食用、分享和扫描小票的积分记录。",
           "caption": "积分历史 / 行为记录与积分收支",
           "notes": [
@@ -293,7 +293,7 @@
         },
         "redemption": {
           "title": "明确兑换目标与积分门槛",
-          "image": "/images/rewards-redemption.png",
+          "image": "/images/rewards-redemption.webp",
           "alt": "奖励兑换界面，展示购物券、咖啡及食谱所需积分，并区分锁定与可兑换状态。",
           "caption": "奖励兑换 / 积分门槛与可兑换状态",
           "notes": [
@@ -309,7 +309,7 @@
         },
         "pet": {
           "title": "数字宠物与状态反馈",
-          "image": "/images/rewards-pet.png",
+          "image": "/images/rewards-pet.webp",
           "alt": "首页数字宠物小狗，显示 Okay 状态，并提示有两份食材需要关注、建议尽快食用。",
           "caption": "首页数字宠物 / 状态反馈与食用提醒",
           "notes": [
@@ -330,13 +330,13 @@
         "text": "测试发现，数量调整不够高效、首页层级不够清晰，Eat First 的用途也不易理解。迭代围绕减少操作负担和突出关键信息展开。",
         "titleCompare": "首页层级与临期提示",
         "before": {
-          "image": "/images/iteration-home-before.png",
+          "image": "/images/iteration-home-before.webp",
           "alt": "PDF 中的旧版低保真首页，包含并列操作按钮和横向 Eat First 食材卡片。",
           "label": "迭代前 · 低保真原型",
           "text": "操作入口并列，Eat First 使用紧凑的横向卡片；测试反馈指出，首页的任务重点和优先食用意图不够清晰。"
         },
         "after": {
-          "image": "/images/rewards-pet.png",
+          "image": "/images/rewards-pet.webp",
           "alt": "最终首页突出扫描小票入口，Eat First 显示食材数量、名称和剩余天数。",
           "label": "迭代后 · 最终界面",
           "text": "突出 Scan Receipt 主入口；Eat First 展示食材数量，以纵向列表呈现名称、剩余天数与状态，增强信息层级。"
@@ -352,47 +352,47 @@
         "galleryLabel": "界面全览",
         "gallery": [
           {
-            "image": "/images/entry-home.png",
+            "image": "/images/entry-home.webp",
             "title": "首页"
           },
           {
-            "image": "/images/entry-scan.png",
+            "image": "/images/entry-scan.webp",
             "title": "小票扫描"
           },
           {
-            "image": "/images/entry-confirm.png",
+            "image": "/images/entry-confirm.webp",
             "title": "扫描确认"
           },
           {
-            "image": "/images/entry-add.png",
+            "image": "/images/entry-add.webp",
             "title": "手动添加"
           },
           {
-            "image": "/images/action-inventory.png",
+            "image": "/images/action-inventory.webp",
             "title": "日常库存"
           },
           {
-            "image": "/images/action-filter.png",
+            "image": "/images/action-filter.webp",
             "title": "分类查找"
           },
           {
-            "image": "/images/action-adjust.png",
+            "image": "/images/action-adjust.webp",
             "title": "剩余量调整"
           },
           {
-            "image": "/images/rewards-history.png",
+            "image": "/images/rewards-history.webp",
             "title": "积分历史"
           },
           {
-            "image": "/images/rewards-redemption.png",
+            "image": "/images/rewards-redemption.webp",
             "title": "奖励兑换"
           },
           {
-            "image": "/images/rewards-leaderboard.png",
+            "image": "/images/rewards-leaderboard.webp",
             "title": "合租排行"
           },
           {
-            "image": "/images/account.png",
+            "image": "/images/account.webp",
             "title": "账号"
           }
         ],
@@ -415,11 +415,11 @@
       },
       "overviewImages": [
         {
-          "image": "/images/rewards-pet.png",
+          "image": "/images/rewards-pet.webp",
           "alt": "智能冰箱产品首页，展示数字宠物、扫描入口与优先食用列表"
         },
         {
-          "image": "/images/action-inventory.png",
+          "image": "/images/action-inventory.webp",
           "alt": "食材库存界面，展示剩余天数与用量"
         }
       ],
@@ -443,17 +443,17 @@
       "overviewWide": false,
       "overviewImages": [
         {
-          "image": "/images/p2-step-2.png",
+          "image": "/images/p2-step-2.webp",
           "alt": "AI 整理出的两个候选方案对比"
         },
         {
-          "image": "/images/p2-step-5.png",
+          "image": "/images/p2-step-5.webp",
           "alt": "汇总与调整界面，显示倾向分布与成员状态"
         }
       ],
       "overviewCaption": "两个候选方案 / 汇总与调整",
       "color": "#DCE8E3",
-      "image": "/images/p2-cover.png",
+      "image": "/images/p2-cover.webp",
       "description": "群聊里聊不出来的，不是方案，是决定。",
       "cta": "探索项目",
       "status": "已完成",
@@ -589,37 +589,37 @@
           "steps": [
             {
               "number": "01",
-              "image": "/images/p2-step-1.png",
+              "image": "/images/p2-step-1.webp",
               "title": "发起方案",
               "text": "发起人填好基础信息，先设必须满足的限制——不能早于 09:00 出发、要双床、不能爬楼。候选内容直接来自成员各自的收藏，不用重新找。"
             },
             {
               "number": "02",
-              "image": "/images/p2-step-2.png",
+              "image": "/images/p2-step-2.webp",
               "title": "AI 整理出两个候选",
               "text": "合并 4 个人的收藏、去重，整理成两个方案，并直接指出它们主要有 4 处不同：价格、住宿区域、去程时间、退改政策。其余安排相同。"
             },
             {
               "number": "03",
-              "image": "/images/p2-step-3.png",
+              "image": "/images/p2-step-3.webp",
               "title": "跟随者轻量表态",
               "text": "表态前不会公开其他人的选择。除了倾向 A 或 B，还可以选「交给大家决定」，或者直接说两个都不合适。"
             },
             {
               "number": "04",
-              "image": "/images/p2-step-4.png",
+              "image": "/images/p2-step-4.webp",
               "title": "补充限制",
               "text": "说不出口的部分在这里收集。选一个标签就行，也可以自己写一句——加进方案时不会显示是谁提的。"
             },
             {
               "number": "05",
-              "image": "/images/p2-step-5.png",
+              "image": "/images/p2-step-5.webp",
               "title": "汇总与调整",
               "text": "发起人看到的是倾向分布和成员状态，而不是谁投了谁。新暴露的限制单独列出，AI 给出下一步的几个选项。"
             },
             {
               "number": "06",
-              "image": "/images/p2-step-6.png",
+              "image": "/images/p2-step-6.webp",
               "title": "最终确认",
               "text": "方案按限制调整后回到所有人手上，标明改了哪一项。确认无误再前往预订，价格与余房实时更新。"
             }
@@ -632,7 +632,7 @@
           "steps": [
             {
               "number": "",
-              "image": "/images/p2-ota.png",
+              "image": "/images/p2-ota.webp",
               "title": "在对话里动态插入「多人方案」卡片",
               "text": "用户打字说出多人旅行的需求，AI 识别意图之后，在对话流里插入一张卡片，点一下就进入前面那条流程。把功能挂在已有的对话入口上、而不是做一个新 Tab，是因为多人旅行的念头本来就是在聊天里冒出来的。"
             }
@@ -675,16 +675,16 @@
       "overviewText": "小凉熊（CoolItch Kids）是一款面向学龄儿童的荨麻疹护理产品。它用半导体制冷提供即时冷敷，把抓破后的消毒处理收进同一个机身，并让孩子在发作时按住侧键说一句话，就能把当时的时间、地点和周围可能的诱因记下来，为找出过敏原留下线索。这是一个独立完成的项目。",
       "overviewImages": [
         {
-          "image": "/images/p3-overview-1.png",
+          "image": "/images/p3-overview-1.webp",
           "alt": "CoolItch Kids 产品正面，米色机身与棕色旋钮"
         },
         {
-          "image": "/images/p3-overview-2.png",
+          "image": "/images/p3-overview-2.webp",
           "alt": "产品放在玻璃桌面上，光影落在机身上"
         }
       ],
       "color": "#E8DCC8",
-      "image": "/images/p3-cover.png",
+      "image": "/images/p3-cover.webp",
       "description": "荨麻疹发作的时候，孩子不再只能抓。",
       "cta": "探索项目",
       "status": "已完成",
@@ -780,21 +780,21 @@
           "cards": [
             {
               "number": "01",
-              "image": "/images/p3-proto-1.png",
+              "image": "/images/p3-proto-1.webp",
               "title": "方案一",
               "text": "便于携带；但外形太扎眼，单手不好操作。",
               "alt": "第一版手板戴在手腕上"
             },
             {
               "number": "02",
-              "image": "/images/p3-proto-2.png",
+              "image": "/images/p3-proto-2.webp",
               "title": "方案二",
               "text": "握感好、好用；但体积偏大不便携，而且容易被误打开。",
               "alt": "第二版手板握在手心里"
             },
             {
               "number": "03",
-              "image": "/images/p3-proto-3.png",
+              "image": "/images/p3-proto-3.webp",
               "title": "最终方案",
               "text": "便携、安全、操作更快。",
               "alt": "孩子把最终方案按在手臂上"
@@ -807,27 +807,27 @@
           "text": "外壳用 PC，轻、耐摔、可回收。顶部有挂孔，能挂在书包上不容易丢。中键切换温度档位，侧键长按录音，中央的玻璃珠随模式变色——孩子不用看说明，也知道现在是什么状态。",
           "gallery": [
             {
-              "image": "/images/p3-gallery-1.png",
+              "image": "/images/p3-gallery-1.webp",
               "title": "桌角"
             },
             {
-              "image": "/images/p3-gallery-2.png",
+              "image": "/images/p3-gallery-2.webp",
               "title": "夜间场景"
             },
             {
-              "image": "/images/p3-gallery-3.png",
+              "image": "/images/p3-gallery-3.webp",
               "title": "旋钮与侧键"
             },
             {
-              "image": "/images/p3-gallery-4.png",
+              "image": "/images/p3-gallery-4.webp",
               "title": "顶部贴片"
             },
             {
-              "image": "/images/p3-gallery-5.png",
+              "image": "/images/p3-gallery-5.webp",
               "title": "消毒喷头"
             },
             {
-              "image": "/images/p3-gallery-6.png",
+              "image": "/images/p3-gallery-6.webp",
               "title": "随身携带"
             }
           ],
