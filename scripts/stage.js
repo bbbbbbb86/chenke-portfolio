@@ -45,7 +45,7 @@ addEventListener('wheel',e=>{
  }
  releaseTimer=setTimeout(settle,150);
 },{passive:false});
-addEventListener('keydown',e=>{if(expanded){if(e.key==='Escape'){e.preventDefault();closeProject();}return;}if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest('input,textarea,select,[contenteditable=true]'))return;if(['ArrowDown','PageDown','ArrowUp','PageUp','Home','End'].includes(e.key)){e.preventDefault();if(moving)return;go(e.key==='Home'?0:e.key==='End'?count-1:target+(['ArrowDown','PageDown'].includes(e.key)?1:-1))}});
+addEventListener('keydown',e=>{if(expanded){if(e.key==='Escape'){e.preventDefault();leaveDetail();}return;}if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest('input,textarea,select,[contenteditable=true]'))return;if(['ArrowDown','PageDown','ArrowUp','PageUp','Home','End'].includes(e.key)){e.preventDefault();if(moving)return;go(e.key==='Home'?0:e.key==='End'?count-1:target+(['ArrowDown','PageDown'].includes(e.key)?1:-1))}});
 dots.forEach((el,i)=>el.addEventListener('click',()=>go(i)));
 addEventListener('touchstart',e=>{if(e.touches.length===1)touch={x:e.touches[0].clientX,y:e.touches[0].clientY};else touch=null},{passive:true});
 addEventListener('touchend',e=>{if(!touch||moving||expanded)return;const dx=e.changedTouches[0].clientX-touch.x,dy=e.changedTouches[0].clientY-touch.y;touch=null;if(Math.abs(dy)>45&&Math.abs(dy)>Math.abs(dx))go(target+(dy<0?1:-1))},{passive:true});
@@ -127,7 +127,25 @@ function closeProject(){
  planes[target].focus({preventScroll:true});
  announce();render();
 }
-homeControl.addEventListener('click',e=>{e.preventDefault();closeProject()});
+function leaveDetail(){
+ if(!expanded||closing)return;
+ if(reduced.matches){closeProject();return}
+ const body=document.body;
+ body.classList.add('detail-leaving');
+ setTimeout(()=>{
+  body.classList.add('detail-snap','detail-shaded');
+  body.classList.remove('detail-leaving');
+  closeProject();
+  requestAnimationFrame(()=>{
+   body.classList.remove('detail-snap');
+   requestAnimationFrame(()=>{
+    body.classList.add('detail-clearing');
+    setTimeout(()=>body.classList.remove('detail-clearing','detail-shaded'),480);
+   });
+  });
+ },500);
+}
+homeControl.addEventListener('click',e=>{e.preventDefault();leaveDetail()});
 planes.forEach(el=>el.addEventListener('click',openProject));
 copies.forEach(el=>el.querySelector('a').addEventListener('click',openProject));
 addEventListener('resize',()=>{render();if(expanded)updateDetailScroll()});addEventListener('pageshow',()=>{render()});announce();render();

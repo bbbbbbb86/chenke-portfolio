@@ -329,3 +329,29 @@ html.anim.ready .page-veil{clip-path:inset(0 100% 0 0);transition:clip-path .5s 
 html.anim.idle .page-veil{clip-path:inset(0 0 0 100%);transition:none}
 html.anim.leaving .page-veil{clip-path:inset(0 0 0 0);transition:clip-path .36s cubic-bezier(.76,0,.24,1)}
 @media(prefers-reduced-motion:reduce){.page-veil{display:none}}
+
+/* 从项目页返回首页：当前页往右滑出，同时整屏变暗；真正的收起藏在暗场里完成 */
+.detail-shade{position:fixed;inset:0;z-index:80;background:#0B0D0C;opacity:0;pointer-events:none;will-change:opacity}
+body.detail-leaving .stage,body.detail-leaving header{transform:translate3d(34vw,0,0);transition:transform .5s cubic-bezier(.65,0,.35,1)}
+body.detail-leaving .detail-shade{opacity:1;transition:opacity .5s ease-in}
+body.detail-shaded .detail-shade{opacity:1}
+body.detail-clearing .detail-shade{opacity:0;transition:opacity .45s ease-out}
+body.detail-snap *{transition:none!important;animation:none!important}
+@media(prefers-reduced-motion:reduce){.detail-shade{display:none}}
+
+/* 设计总结：接在 06 章底部的收尾块，不单独占一屏 */
+.chapter-closing{width:65.36%;max-width:1480px;margin:clamp(70px,8vh,112px) auto 0;border-top:1px solid #d9d9d9;padding-top:clamp(34px,4vh,54px)}
+.chapter-closing h3{font-size:clamp(15px,1.2vw,20px);font-weight:700;letter-spacing:.06em;margin:0 0 clamp(28px,3.4vh,46px)}
+.closing-points{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,3.4vw,64px)}
+.closing-points article{min-width:0}
+.closing-points h4{font-size:clamp(17px,1.35vw,24px);font-weight:650;line-height:1.45;letter-spacing:-.01em;margin:0 0 12px}
+.closing-points p{font-size:clamp(15px,1.1vw,19px);line-height:1.75;margin:0;color:#3a3a3a}
+.closing-note{margin:clamp(34px,4vh,54px) 0 0;font-size:clamp(13px,.95vw,16px);line-height:1.7;color:#7a7a7a}
+@media(max-width:860px){.chapter-closing{width:86%}.closing-points{grid-template-columns:1fr;gap:30px}}
+
+/* 项目一只剩「设计总结」一栏时，铺成三列，和项目二三的收尾块一致 */
+.reflection-columns:has(>section:only-child){grid-template-columns:minmax(0,1fr)}
+.reflection-columns:has(>section:only-child)>section{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(28px,3.4vw,64px)}
+.reflection-columns:has(>section:only-child)>section>h3{grid-column:1/-1;margin-bottom:0}
+.reflection-columns:has(>section:only-child) .reflection-point{margin:0;min-width:0}
+@media(max-width:860px){.reflection-columns:has(>section:only-child)>section{grid-template-columns:1fr;gap:30px}}
