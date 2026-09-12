@@ -157,28 +157,8 @@ document.querySelectorAll('[data-rail]').forEach(block=>{
  if(!items.length)return;
  const padLeft=()=>parseFloat(getComputedStyle(track).paddingLeft)||0;
  const instant=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
- const controls=document.createElement('div');
- controls.className='screens-controls';
- const buttons=[-1,1].map(step=>{
-  const button=document.createElement('button');
-  button.type='button';button.className='screens-control';
-  button.textContent=step<0?'←':'→';
-  button.setAttribute('aria-label',step<0?'上一张图片':'下一张图片');
-  button.addEventListener('click',()=>go(step));
-  controls.append(button);return button;
- });
- track.parentElement.append(controls);
- const maxScroll=()=>Math.max(0,track.scrollWidth-track.clientWidth);
- function updateControls(){buttons[0].disabled=track.scrollLeft<=1;buttons[1].disabled=track.scrollLeft>=maxScroll()-1;}
- track.addEventListener('scroll',updateControls,{passive:true});
- new ResizeObserver(updateControls).observe(track);
- track.querySelectorAll('img').forEach(img=>{img.draggable=false;img.addEventListener('load',updateControls);});
- track.addEventListener('wheel',e=>{
-  if(e.ctrlKey||Math.abs(e.deltaX)>Math.abs(e.deltaY))return;
-  const delta=e.deltaY*(e.deltaMode===1?16:e.deltaMode===2?track.clientWidth:1);
-  if(!delta||(delta<0?track.scrollLeft<=1:track.scrollLeft>=maxScroll()-1))return;
-  e.preventDefault();track.scrollLeft+=delta;
- },{passive:false});
+ // Leave wheel gestures native: vertical scrolls the page, horizontal scrolls the gallery.
+ track.querySelectorAll('img').forEach(img=>{img.draggable=false;});
  let drag=null,suppressClick=false;
  track.addEventListener('pointerdown',e=>{
   if(e.pointerType!=='mouse'||e.button!==0)return;
@@ -200,7 +180,6 @@ document.querySelectorAll('[data-rail]').forEach(block=>{
  track.addEventListener('pointercancel',endDrag);
  track.addEventListener('lostpointercapture',endDrag);
  track.addEventListener('click',e=>{if(suppressClick){e.preventDefault();e.stopPropagation();suppressClick=false;}},true);
- updateControls();
  function nearest(){
   const base=track.getBoundingClientRect().left+padLeft();
   let best=Infinity,idx=0;

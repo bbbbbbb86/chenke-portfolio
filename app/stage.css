@@ -356,12 +356,6 @@ body.detail-snap *{transition:none!important;animation:none!important}
 .reflection-columns:has(>section:only-child) .reflection-point{margin:0;min-width:0}
 @media(max-width:860px){.reflection-columns:has(>section:only-child)>section{grid-template-columns:1fr;gap:30px}}
 
-/* Desktop gallery controls; native touchpad scrolling remains available. */
-.screens-track{cursor:grab;user-select:none}
+/* Mouse dragging supplements native trackpad gestures. */
+.screens-track{cursor:grab;user-select:none;touch-action:auto}
 .screens-track.is-dragging{cursor:grabbing}
-.screens-controls{display:flex;justify-content:flex-end;gap:12px;width:72%;max-width:1440px;margin:24px auto 0}
-.screens-control{display:grid;place-items:center;width:44px;height:44px;border:1px solid #0003;border-radius:50%;background:white;color:#0b0b0b;font-size:24px;cursor:pointer}
-.screens-control:hover:not(:disabled){background:#0b0b0b;color:white}
-.screens-control:disabled{opacity:.25;cursor:default}
-.screens-control:focus-visible{outline:2px solid #0b0b0b;outline-offset:4px}
-@media(max-width:760px){.screens-controls{width:86%}}
