@@ -394,3 +394,9 @@ body.detail-snap *{transition:none!important;animation:none!important}
 .prototype-demo{margin-top:clamp(56px,7vw,110px)}
 .prototype-demo h3{margin:0 0 24px;font-size:20px;font-weight:600}
 .prototype-demo video{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#000;object-fit:contain}
+.prototype-demo-note{margin:16px 0 0;font-size:13px;line-height:1.7;color:#666}
+.detail-intro-link{display:inline-flex;align-items:baseline;gap:9px;margin-top:clamp(28px,3vh,44px);font-size:clamp(14px,1.02vw,17px);font-weight:600;letter-spacing:.01em}
+.detail-intro-link span{border-bottom:1px solid rgba(0,0,0,.28);padding-bottom:3px;transition:border-color .3s}
+.detail-intro-link:hover span{border-bottom-color:rgba(0,0,0,.75)}
+.detail-intro-link i{font-style:normal;font-size:1.1em;line-height:1;transition:transform .3s}
+.detail-intro-link:hover i{transform:translate(3px,-3px)}

@@ -116,6 +116,10 @@
       "date": "2026 年 1 月—4 月",
       "overviewTitle": "让冰箱里的食材，不再被遗忘。",
       "overviewText": "智能冰箱是一款以 AI 辅助食材管理的产品。它通过小票识别自动建立库存，并结合临期提醒与行动反馈，帮助用户更轻松地掌握食材状态，减少因遗忘造成的浪费。",
+      "overviewLink": {
+        "label": "原型测试链接",
+        "href": "https://deer-change-17177173.figma.site/inventory"
+      },
       "problem": {
         "storyboard": {
           "title": "一份食材，是怎样被遗忘的？",
@@ -396,7 +400,12 @@
             "title": "账号"
           }
         ],
-        "video": {"src": "/videos/auxt-demo.mp4", "poster": "/images/smart-fridge-cover.webp", "title": "原型演示"},
+        "video": {
+          "src": "/videos/auxt-demo.mp4",
+          "poster": "/images/smart-fridge-cover.webp",
+          "title": "原型演示",
+          "caption": "视频由 Gemini 生成"
+        },
         "summaryTitle": "设计总结",
         "summary": [
           {
