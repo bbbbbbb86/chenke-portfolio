@@ -367,3 +367,26 @@ body.detail-snap *{transition:none!important;animation:none!important}
 @media(max-width:760px){
  .chapter-section .action-heading--wide h2{font-size:clamp(14px,4.3vw,32px);letter-spacing:-.035em}
 }
+
+.mobile-description{display:none}
+@media(max-width:760px){
+ body:not(.project-expanded) header{position:absolute;padding:24px 6vw;font-size:12px}
+ body:not(.project-expanded) .stage{overflow-y:auto;overflow-x:hidden;touch-action:pan-y;overscroll-behavior-y:auto}
+ body:not(.project-expanded) .pagination{position:absolute;top:76px;left:0;right:0;transform:none;flex-direction:row;justify-content:center;gap:0}
+ body:not(.project-expanded) .pagination button{width:30px;height:32px}
+ body:not(.project-expanded) .pagination span{width:12px;height:5px}
+ body:not(.project-expanded) .pagination button[aria-current=true] span{width:18px;height:5px}
+ body:not(.project-expanded) .gallery{top:140px;height:55vw;bottom:auto;perspective:none}
+ body:not(.project-expanded) .plane{top:0;left:6vw;width:88vw;height:55vw;overflow:visible}
+ body:not(.project-expanded) .plane-inner{clip-path:none;border-radius:0}
+ body:not(.project-expanded) .plane img{object-fit:cover}
+ body:not(.project-expanded) .copy-area{position:relative;left:auto;top:auto;width:88%;height:auto;min-height:300px;margin:calc(140px + 55vw + 36px) auto 0;padding-bottom:64px}
+ body:not(.project-expanded) .project-copy{position:relative;inset:auto}
+ body:not(.project-expanded) .project-copy[aria-hidden=true]{display:none}
+ body:not(.project-expanded) .project-copy h1{font-family:Georgia,'Songti SC',serif;font-size:38px;margin:0 0 14px;line-height:1.2}
+ body:not(.project-expanded) .project-copy .project-type{font-size:12px;line-height:1.5;margin:0 0 18px;letter-spacing:.08em}
+ body:not(.project-expanded) .project-copy p{font-size:17px;line-height:1.75;max-width:none;margin:0}
+ body:not(.project-expanded) .project-copy:has(.mobile-description) .project-description{display:none}
+ body:not(.project-expanded) .mobile-description{display:block}
+ body:not(.project-expanded) .project-copy>a{margin-top:26px;font-size:13px;gap:16px}
+}

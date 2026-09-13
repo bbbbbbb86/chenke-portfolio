@@ -9,7 +9,7 @@ function render(){
  const a=Math.max(0,Math.min(count-1,Math.floor(position))),b=Math.min(count-1,a+1),mix=Math.max(0,Math.min(1,position-a)),c1=rgb(data.colors[a%data.colors.length]),c2=rgb(data.colors[b%data.colors.length]);
  document.body.style.backgroundColor=`rgb(${c1.map((v,i)=>Math.round(v+(c2[i]-v)*mix)).join(',')})`;
  const mobile=innerWidth<=760,step=innerHeight*(mobile?.57:.72),speed=moving?Math.sin(Math.PI*Math.min(1,(performance.now()-start)/880)):0;
- planes.forEach((el,i)=>{const d=i-position;el.style.transform=`translate3d(${-d*(mobile?35:75)}px,${d*step}px,${-Math.abs(d)*85}px) rotateZ(${-3-speed*1.5}deg) rotateY(${-5+speed*2}deg) skewX(${-16-speed*3}deg)`;el.style.opacity=String(Math.max(0,1-Math.abs(d)*.55));el.style.pointerEvents=i===target?'auto':'none';el.tabIndex=i===target?0:-1;el.setAttribute('aria-hidden',String(i!==target));});
+ planes.forEach((el,i)=>{const d=i-position;el.style.transform=mobile?`translate3d(${d*91}vw,0,0)`:`translate3d(${-d*(mobile?35:75)}px,${d*step}px,${-Math.abs(d)*85}px) rotateZ(${-3-speed*1.5}deg) rotateY(${-5+speed*2}deg) skewX(${-16-speed*3}deg)`;el.style.opacity=String(Math.max(0,1-Math.abs(d)*.55));el.style.pointerEvents=i===target?'auto':'none';el.tabIndex=i===target?0:-1;el.setAttribute('aria-hidden',String(i!==target));});
  copies.forEach((el,i)=>{const d=i-position;el.style.opacity=String(Math.max(0,1-Math.abs(d)*2.5));el.style.transform=`translate3d(0,${d*(mobile?45:75)}px,0)`;});
 }
 function announce(){copies.forEach((el,i)=>{el.inert=i!==target;el.setAttribute('aria-hidden',String(i!==target))});dots.forEach((el,i)=>i===target?el.setAttribute('aria-current','true'):el.removeAttribute('aria-current'));document.querySelector('#announcement').textContent=`${target+1} / ${count}，${data.projects[target]}`;history.replaceState(null,'','#project='+(target+1));}
@@ -28,7 +28,7 @@ function settle(){
  frame=requestAnimationFrame(rebound);
 }
 addEventListener('wheel',e=>{
- if(expanded)return;
+ if(expanded||innerWidth<=760)return;
  if(e.ctrlKey||Math.abs(e.deltaX)>Math.abs(e.deltaY))return;
  e.preventDefault();const now=performance.now();
  if(now-lastWheel>180){wheelSum=0;gestureUsed=false}
@@ -48,7 +48,7 @@ addEventListener('wheel',e=>{
 addEventListener('keydown',e=>{if(expanded){if(e.key==='Escape'){e.preventDefault();leaveDetail();}return;}if(e.altKey||e.ctrlKey||e.metaKey||e.target.closest('input,textarea,select,[contenteditable=true]'))return;if(['ArrowDown','PageDown','ArrowUp','PageUp','Home','End'].includes(e.key)){e.preventDefault();if(moving)return;go(e.key==='Home'?0:e.key==='End'?count-1:target+(['ArrowDown','PageDown'].includes(e.key)?1:-1))}});
 dots.forEach((el,i)=>el.addEventListener('click',()=>go(i)));
 addEventListener('touchstart',e=>{if(e.touches.length===1)touch={x:e.touches[0].clientX,y:e.touches[0].clientY};else touch=null},{passive:true});
-addEventListener('touchend',e=>{if(!touch||moving||expanded)return;const dx=e.changedTouches[0].clientX-touch.x,dy=e.changedTouches[0].clientY-touch.y;touch=null;if(Math.abs(dy)>45&&Math.abs(dy)>Math.abs(dx))go(target+(dy<0?1:-1))},{passive:true});
+addEventListener('touchend',e=>{if(!touch||moving||expanded)return;const dx=e.changedTouches[0].clientX-touch.x,dy=e.changedTouches[0].clientY-touch.y;touch=null;if(innerWidth<=760){if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy)*1.3)go(target+(dx<0?1:-1))}else if(Math.abs(dy)>45&&Math.abs(dy)>Math.abs(dx))go(target+(dy<0?1:-1))},{passive:true});
 const homeControl=document.querySelector('#home-control'),homeLabel=homeControl.textContent;
 const pagination=document.querySelector('.pagination');
 const stage=document.querySelector('.stage'),details=[...document.querySelectorAll('[data-detail]')];
