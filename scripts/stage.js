@@ -111,6 +111,7 @@ function openProject(e){
 }
 function closeProject(){
  if(!expanded)return;
+ details.forEach(el=>el.querySelectorAll('video').forEach(video=>video.pause()));
  expanded=false;closing=true;
  clearTimeout(detailReadyTimer);
  document.body.classList.remove('detail-ready');

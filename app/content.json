@@ -396,6 +396,7 @@
             "title": "账号"
           }
         ],
+        "video": {"src": "/videos/auxt-demo.mp4", "poster": "/images/smart-fridge-cover.webp", "title": "原型演示"},
         "summaryTitle": "设计总结",
         "summary": [
           {
