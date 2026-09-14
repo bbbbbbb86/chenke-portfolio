@@ -6,7 +6,7 @@ const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'
 const url=s=>/^\/(?!\/)[^\\]*$/.test(s)?s:'';
 mkdirSync('out',{recursive:true});cpSync('public','out',{recursive:true});
 writeFileSync('out/style.css',readFileSync('app/globals.css','utf8').replace(/^@import .*;\n/gm,''));
-const head=title=>`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)} — Chenke Huang</title><meta name="description" content="产品与交互设计作品集"><link rel="stylesheet" href="/style.css"></head><body>`;
+const head=title=>`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)} — Chenke Huang</title><meta name="description" content="产品与交互设计作品集"><link rel="stylesheet" href="/style.css"><script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?442192775c6eee370de389c41f57b351";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();</script></head><body>`;
 const nav=(home=false)=>`<header class="nav"><a href="/" class="logo" aria-label="Chenke Huang 首页">CH<span>•</span></a><span class="nav-note">独立思考，自由探索。</span><a class="nav-link" href="${home?'/about/':'/#work'}">${home?'关于我':'返回作品'} ↗</a></header>`;
 const foot=`<footer class="home-footer"><span>${esc(profile.name)} © ${new Date().getFullYear()}</span><a href="/about/">认识一下？ ↗</a><a href="#" data-top>回到顶部 ↑</a></footer>`;
 const shell=(title,body)=>head(title)+body+'<script src="/interaction.js" defer></script></body></html>';
